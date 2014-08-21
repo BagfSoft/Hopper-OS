@@ -1,0 +1,169 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Sys = Cosmos.System;
+using Cosmos.Hardware;
+
+namespace Hopper_OS
+{
+    public class Kernel : Sys.Kernel
+    {
+        VGAScreen screen;
+        Mouse mouse;
+        int i;
+        protected override void BeforeRun()
+        {
+            screen = new VGAScreen();
+            //screen.SetMode320x200x8();
+            screen.SetGraphicsMode(VGAScreen.ScreenSize.Size320x200, VGAScreen.ColorDepth.BitDepth8);
+            screen.SetPaletteEntry(1, 165, 42, 42);
+
+            screen.Clear(128);
+            mouse = new Mouse();
+            mouse.Initialize(320, 200);
+        }
+
+        protected override void Run()
+        {
+            screen.SetPixel320x200x8((uint)mouse.X, (uint)mouse.Y, 5);
+            for (i = 1; i <= 600; i++)
+            {
+                screen.SetPixel((byte)i, 0, 1);
+                screen.SetPixel((byte)i, 1, 1);
+                screen.SetPixel((byte)i, 2, 1);
+                screen.SetPixel((byte)i, 3, 1);
+                screen.SetPixel((byte)i, 4, 1);
+                screen.SetPixel((byte)i, 5, 1);
+                screen.SetPixel((byte)i, 6, 1);
+                screen.SetPixel((byte)i, 7, 1);
+                screen.SetPixel((byte)i, 8, 1);
+                screen.SetPixel((byte)i, 9, 1);
+                screen.SetPixel((byte)i, 10, 1);
+            }
+            if (mouse.Buttons == Mouse.MouseState.Left)
+            {
+                // Draw "H"
+            screen.SetPixel(65, 50, 3);
+            screen.SetPixel(65, 51, 3);
+            screen.SetPixel(65, 52, 3);
+            screen.SetPixel(65, 53, 3);
+            screen.SetPixel(65, 54, 3);
+            screen.SetPixel(65, 55, 3);
+            screen.SetPixel(65, 56, 3);
+            screen.SetPixel(65, 57, 3);
+            screen.SetPixel(65, 58, 3);
+            screen.SetPixel(65, 59, 3);
+            screen.SetPixel(65, 60, 3);
+            screen.SetPixel(70, 50, 3);
+            screen.SetPixel(70, 51, 3);
+            screen.SetPixel(70, 52, 3);
+            screen.SetPixel(70, 53, 3);
+            screen.SetPixel(70, 54, 3);
+            screen.SetPixel(70, 55, 3);
+            screen.SetPixel(70, 56, 3);
+            screen.SetPixel(70, 57, 3);
+            screen.SetPixel(70, 58, 3);
+            screen.SetPixel(70, 59, 3);
+            screen.SetPixel(70, 60, 3);
+            screen.SetPixel(65, 55, 3);
+            screen.SetPixel(66, 55, 3);
+            screen.SetPixel(67, 55, 3);
+            screen.SetPixel(68, 55, 3);
+            screen.SetPixel(69, 55, 3);
+            screen.SetPixel(70, 55, 3);
+                //-------
+
+                //draw "E"
+            screen.SetPixel(75, 50, 3);
+            screen.SetPixel(75, 51, 3);
+            screen.SetPixel(75, 52, 3);
+            screen.SetPixel(75, 53, 3);
+            screen.SetPixel(75, 54, 3);
+            screen.SetPixel(75, 55, 3);
+            screen.SetPixel(75, 56, 3);
+            screen.SetPixel(75, 57, 3);
+            screen.SetPixel(75, 58, 3);
+            screen.SetPixel(75, 59, 3);
+            screen.SetPixel(75, 60, 3);
+            screen.SetPixel(76, 50, 3);
+            screen.SetPixel(77, 50, 3);
+            screen.SetPixel(78, 50, 3);
+            screen.SetPixel(79, 50, 3);
+            screen.SetPixel(80, 50, 3);
+            screen.SetPixel(76, 55, 3);
+            screen.SetPixel(77, 55, 3);
+            screen.SetPixel(78, 55, 3);
+            screen.SetPixel(79, 55, 3);
+            screen.SetPixel(80, 55, 3);
+            screen.SetPixel(76, 60, 3);
+            screen.SetPixel(77, 60, 3);
+            screen.SetPixel(78, 60, 3);
+            screen.SetPixel(79, 60, 3);
+            screen.SetPixel(80, 60, 3);
+
+                //-----
+
+                //draw "l" (L)
+            screen.SetPixel(84, 50, 3);
+            screen.SetPixel(84, 51, 3);
+            screen.SetPixel(84, 52, 3);
+            screen.SetPixel(84, 53, 3);
+            screen.SetPixel(84, 54, 3);
+            screen.SetPixel(84, 55, 3);
+            screen.SetPixel(84, 56, 3);
+            screen.SetPixel(84, 57, 3);
+            screen.SetPixel(84, 58, 3);
+            screen.SetPixel(84, 59, 3);
+            screen.SetPixel(84, 60, 3);
+            screen.SetPixel(88, 50, 3);
+            screen.SetPixel(88, 51, 3);
+            screen.SetPixel(88, 52, 3);
+            screen.SetPixel(88, 53, 3);
+            screen.SetPixel(88, 54, 3);
+            screen.SetPixel(88, 55, 3);
+            screen.SetPixel(88, 56, 3);
+            screen.SetPixel(88, 57, 3);
+            screen.SetPixel(88, 58, 3);
+            screen.SetPixel(88, 59, 3);
+            screen.SetPixel(88, 60, 3);
+                //-----
+
+                //draw "O"
+            screen.SetPixel(95, 50, 3);
+            screen.SetPixel(94, 51, 3);
+            screen.SetPixel(93, 52, 3);
+            screen.SetPixel(93, 53, 3);
+            screen.SetPixel(93, 54, 3);
+            screen.SetPixel(93, 55, 3);
+            screen.SetPixel(93, 56, 3);
+            screen.SetPixel(93, 57, 3);
+            screen.SetPixel(93, 58, 3);
+            screen.SetPixel(94, 59, 3);
+            screen.SetPixel(95, 60, 3);
+            screen.SetPixel(96, 60, 3);
+            screen.SetPixel(97, 60, 3);
+            screen.SetPixel(98, 60, 3);
+            screen.SetPixel(99, 60, 3);
+            screen.SetPixel(100, 59, 3);
+            screen.SetPixel(101, 58, 3);
+            screen.SetPixel(101, 59, 3);
+            screen.SetPixel(101, 58, 3);
+            screen.SetPixel(101, 57, 3);
+            screen.SetPixel(101, 56, 3);
+            screen.SetPixel(101, 55, 3);
+            screen.SetPixel(101, 54, 3);
+            screen.SetPixel(101, 53, 3);
+            screen.SetPixel(101, 52, 3);
+            screen.SetPixel(100, 51, 3);
+            screen.SetPixel(99, 50, 3);
+            screen.SetPixel(98, 50, 3);
+            screen.SetPixel(97, 50, 3);
+            screen.SetPixel(96, 50, 3);
+            }
+            else if (mouse.Buttons == Mouse.MouseState.Right)
+            {
+                screen.Clear(128);
+            }
+        }
+    }
+}
